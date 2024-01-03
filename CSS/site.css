@@ -1,0 +1,460 @@
+:root {
+    --title-font: 'Bebas Neue', sans-serif;
+    --subtitle-font: 'Fira Sans', sans-serif;
+    --heading-font: 'Bebas Neue', sans-serif;
+    --cf-body-font: 'Roboto', sans-serif;
+
+    --cf-primary-color: rgb(145, 203, 251);
+    --cf-secondary-color: rgb(66, 148, 186);
+    --cf-highlight-color: rgb(250, 225, 120);
+    --cf-dark-color: rgb(33, 33, 33);
+    --cf-light-color: rgb(222, 238, 251);
+    --cf-background-color: rgba(250, 250, 250, .8);
+
+    --cf-nav-bg-color:  rgb(33, 33, 33,.8);
+    --cf-nav-toggler-glow: rgba(250, 225, 120, .55);
+    --cf-nav-togger-color: var(--cf-highlight-color);
+
+    --cf-formfocus-border-color: var(--cf-secondary-color);
+    --cf-formfocus-shadow: var(--cf-primary-color);
+    --cf-form-background-color: var(--cf-background-color);
+
+    --cf-font-size: 1.2rem;
+    --cf-font-weight: 400;
+    --cf-line-height: 1.5rem;
+    --cf-title-color: var(--cf-dark-color);
+
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+
+    font-family: var(--cf-body-font);
+    font-size: var(--cf-font-size);
+    font-weight: var(--cf-font-weight);
+    line-height: var(--cf-line-height);
+    color: var(--cf-dark-color);
+    background: var(--cf-background-color);
+    --webkit-text-size-adjust: 100%;
+
+}
+
+/*--- sticky footer and page layout --- */
+header {
+    margin-top: 74px;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+
+
+/*------ELEMENT OVERRIDES ----- */
+section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+
+h6,
+.h6,
+h5,
+.h5,
+h4,
+.h4,
+h3,
+.h3,
+h2,
+.h2,
+h1,
+.h1 {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    color: var(--cf-title-color);
+}
+
+/*--Button Overrides --*/
+/*-- Button styles override Bootstrap Styles --*/
+.btn-outline-primary {
+    color: var(--cf-dark-color);
+    border-color: var(--cf-secondary-color) !important;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:active,
+.btn-outline-primary:focus {
+    border-color: var(--cf-highlight-color) !important;
+    background-color: var(--cf-secondary-color);
+}
+
+.btn-primary {
+    color: white !important;
+    background-color: var(--cf-secondary-color) !important;
+    border-color: var(--cf-secondary-color);
+}
+
+.btn-primary:hover {
+    filter: brightness(1.1) !important;
+    border-color: var(--cf-highlight-color) !important;
+}
+
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+    filter: brightness(1.1) !important;
+    border-color: var(--cf-primary-color);
+}
+
+/*--form overrides --*/
+.form-control,
+.form-select {
+    background-color: rgba(250, 250, 250, 0.8);
+}
+
+.form-select:focus,
+.form-control:focus {
+    background-color: var(--cf-form-background-color);
+    border-color: var(--cf-formfocus-border-color);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px var(--cf-formfocus-shadow);
+    outline: 0 none;
+}
+
+.linkstyle {
+    color: var(--cf-secondary-color);
+    text-decoration: none;
+}
+
+.linkstyle:hover {
+    color: var(--cf-secondary-color);
+    filter: saturate(2);
+    text-decoration: underline;
+}
+
+/*--- nav bar overrides ---*/
+/*--- set the back ground color of the navbar ---*/
+#mainNav {
+    background: var(--cf-dark-color);
+}
+
+#mainNav button {
+    border-color: var(--cf-highlight-color);
+}
+
+.navbar-toggler {
+    color: var(--cf-nav-toggler-glow) !important;
+}
+
+.navbar-toggler-icon-cf {
+    color: var(--cf-nav-togger-color);
+    font-size: 1.5rem;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+/*--- default style for the header image media queries set the image at breakpoints---*/
+.mainHeader {
+    background-image: url(/img/DevPortFolioBG_576.png);
+    height: 200px;
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-color: var(--cf-light-color);
+}
+
+.mainHeader-cover {
+    background-image: url(/img/cityBG_2560.png);
+    background-repeat: no-repeat;
+    min-height: 200px;  
+    width: 100%;
+    height: 100%;
+    background-position: top left;
+    background-size: cover;
+    overflow: hidden;
+}
+
+/* tint and blur the background with filters*/
+.mainHeader-cover>.mainHeader-content {
+    backdrop-filter: blur(3px) hue-rotate(0deg) brightness(90%) contrast(150%) saturate(150%);
+    -webkit-backdrop-filter: blur(3px) hue-rotate(10deg) brightness(110%) contrast(150%) saturate(150%);
+}
+
+/* firefox does not support backdrop-filter fallback with semi transparent bg color */
+@supports not (backdrop-filter:blur(3px)) {
+    .mainHeader-cover>.mainHeader-content {
+        background-color: rgba(0, 37, 46, 0.6);
+    }
+}
+
+.mainHeader-wrapper {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/*-----Main Header Styles -----*/
+/* styling the main title */
+.mainTitle {
+    font-family: var(--title-font);
+    font-size: 2.5rem;
+    line-height: 2rem;
+    color: var(--cf-dark-color);
+}
+
+/* sizing the logo for the header */
+.mainLogo {
+    height: .6em;
+}
+
+/*----- sub title styling -----*/
+.subTitle {
+    font-family: var(--subtitle-font);
+    font-size: .6rem;
+    line-height: 1rem;
+    font-weight: 300;
+    letter-spacing: .09rem;
+    color: var(--cf-dark-color);
+}
+
+
+.profilePic {
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+}
+
+/*-----Section Styles------*/
+.section-page {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.section-page:nth-child(even) {
+    background-color: var(--cf-light-color);
+}
+
+.section-page:nth-child(odd) {
+    background-color: var(--cf-primary-color);
+}
+
+/* set the color of the next to last section */
+.section-page:nth-last-child(2) {
+    background-color: var(--cf-primary-color);
+}
+
+/* set the height and color of the contact form*/
+.section-page:last-child {
+    background-color: var(--cf-light-color);
+}
+
+/* set the styles for the cta sections*/
+.section-cta {
+    background-color: var(--cf-dark-color);
+    color: var(--cf-light-color);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    line-height: 1.2rem;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.cta-arrow {
+    color: var(--cf-highlight-color);
+    font-size: 2rem;
+
+}
+
+.cta-arrow:hover {
+    color: var(--cf-highlight-color);
+    filter: brightness(1.2);
+}
+
+.line-clamp {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+/*------footer styles-----*/
+.footer-bg-cta {
+    background: linear-gradient(to bottom, var(--cf-background-color), var(--cf-background-color) 50%, var(--cf-dark-color) 50%, var(--cf-dark-color) 100%);
+}
+
+.footer-cta {
+    border-radius: 10px;
+    background-color: var(--cf-secondary-color);
+    width: 75%;
+}
+
+.footer-message {
+    color: var(--cf-dark-color);
+    letter-spacing: .1rem;
+}
+
+.footer-main {
+    background-color: var(--cf-dark-color);
+    color: var(--cf-light-color);
+}
+
+
+.footer-main a.socialicons {
+    color: var(--cf-secondary-color);
+    opacity: 1;
+}
+
+.footer-main a.socialicons:hover {
+    color: var(--cf-highlight-color);
+    opacity: 1;
+}
+
+.socialicons {
+    font-size: 2rem;
+}
+
+.devicons {
+    font-size: 4rem;
+}
+
+/* --- Breakpoints and image sizes for header images
+2560x500
+1200x400
+992x300
+767X200
+576x200
+375x150
+*----/
+
+/*---------MEDIA QUERIES -----------*/
+
+
+/* small devices (landscape phones 576px and up) */
+@media (min-width: 575.98px) {
+
+    .mainHeader {
+        background-image: url(/img/DevPortFolioBG_767.png);
+        height: 200px;
+    }
+
+
+
+}
+
+@media (min-width: 767.98px) {
+    .mainHeader {
+        background-image: url(/img/DevPortFolioBG_992.png);
+        height: 300px;
+    }
+
+    .mainHeader-cover {
+        min-height: 300px;
+    }
+
+    .footer-cta {
+        width: 75%;
+    }
+
+    /* styling the main title */
+    .mainTitle {
+        font-size: 4.5rem;
+        line-height: 3.5rem;
+    }
+
+    /* sizing the logo for the header */
+    .mainLogo {
+        height: .6em;
+    }
+
+    .subTitle {
+        font-size: 1.2rem;
+        line-height: 1rem;
+        font-weight: 300;
+        letter-spacing: .1rem;
+    }
+
+    .section-cta {
+        line-height: 1.7rem;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .cta-arrow {
+        color: var(--cf-highlight-color);
+        font-size: 2.5rem;
+    }
+
+}
+
+@media (min-width: 991.98px) {
+    .mainHeader {
+        background-image: url(/img/DevPortFolioBG_1200.png);
+        height: 400px;
+    }
+
+
+}
+
+@media(min-width:1199.98px) {
+    .mainHeader {
+        background-image: url(/img/DevPortFolioBG_2560.png);
+        height: 500px;
+    }
+
+    .mainHeader-cover {
+        min-height: 500px;
+    }
+
+    /* styling the main title */
+    .mainTitle {
+
+        font-size: 6rem;
+        line-height: 5rem;
+    }
+
+    /* sizing the logo for the header */
+    .mainLogo {
+        height: .6em;
+    }
+
+    .subTitle {
+        font-size: 1.7rem;
+        line-height: 1rem;
+        font-weight: 300;
+        letter-spacing: .1rem;
+    }
+
+    .section-cta {
+
+        line-height: 2.7rem;
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .cta-arrow {
+        color: var(--cf-highlight-color);
+        font-size: 4rem;
+
+    }
+}
+
+@media(min-width:1399.98px) {
+    .mainHeader {
+        background-image: url(/img/DevPortFolioBG_2560.png);
+        height: 500px;
+    }
+
+
+}
